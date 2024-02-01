@@ -3,6 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { config } from 'dotenv';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { config } from 'dotenv';
       database: process.env.DB_NAME,
       models: [],
     }),
+    UserModule,
   ],
   controllers: [AppController],
   providers: [AppService],
