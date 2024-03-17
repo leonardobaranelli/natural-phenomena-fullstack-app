@@ -25,9 +25,10 @@ export class UserService {
     return this.userModel.create(createUserDto);
   }
 
-  async remove(id: string): Promise<void> {
+  async remove(id: string): Promise<string> {
     const user = await this.findOne(id);
     await user.destroy();
+    return 'User deleted successfully';
   } 
 
   async update(id: string, updateUserDto: UpdateUserDto): Promise<User> {
